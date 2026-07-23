@@ -78,7 +78,7 @@ legend([h1, h2, h3, h4], {'焊接中心温度', '炉内环境温度', 'T=217°C'
     'Location', 'southeast', 'FontSize', 8);
 grid on;
 
-print(gcf, fullfile(fileparts(mfilename('fullpath')), '..', 'result', 'figures', 'q3_optimal.png'), '-dpng', '-r200');
+print(gcf, fullfile(fileparts(mfilename('fullpath')), '..', 'result', 'figures', 'q3_optimal.png'), '-dpng', '-r300');
 
 % =============== 目标函数 ===============
 function S = obj_area(x, xm)

@@ -44,24 +44,28 @@ fprintf('冷却区(10-11):%.4e  %.4e\n', xm_opt(9), xm_opt(10));
 fprintf('\nSSE=%.4f, RMSE=%.4f°C, R²=%.4f\n', SSE, sqrt(mean(err.^2)), R2);
 
 % 绘图
-figure('Position', [100, 100, 1100, 420]);
+RMSE_val = sqrt(mean(err.^2));
+figure('Position', [100, 100, 1200, 440]);
 subplot(1,2,1); hold on;
-plot(t_exp, T_exp, 'b.', 'MarkerSize', 6);
-plot(t_exp, T_interp, 'r-', 'LineWidth', 1.5);
-xlabel('时间 (s)'); ylabel('温度 (°C)');
-title(sprintf('拟合对比 (R^2=%.4f, RMSE=%.2f°C)', R2, sqrt(mean(err.^2))));
-legend('实验数据', '模拟值', 'Location', 'southeast'); grid on;
+h1 = plot(t_exp, T_exp, '.', 'Color', [0.3 0.3 0.8], 'MarkerSize', 3);
+h2 = plot(t_exp, T_interp, 'r-', 'LineWidth', 1.5);
+xlabel('时间 (s)', 'FontSize', 11); ylabel('温度 (°C)', 'FontSize', 11);
+title(sprintf('拟合对比 (R^2=%.4f, RMSE=%.2f°C)', R2, RMSE_val), 'FontSize', 12);
+legend([h1, h2], {'实验数据', '模拟值'}, 'Location', 'southeast', 'FontSize', 10);
+grid on; set(gca, 'FontSize', 10);
 
 subplot(1,2,2); hold on;
-stem(t_exp, err, 'k.', 'MarkerSize', 4);
-yline(0, 'r-', 'LineWidth', 1);
-yline(3*sqrt(mean(err.^2)), 'b--', 'LineWidth', 1);
-yline(-3*sqrt(mean(err.^2)), 'b--', 'LineWidth', 1);
-xlabel('时间 (s)'); ylabel('残差 (°C)');
-title(sprintf('残差分析 (RMSE=%.2f°C)', sqrt(mean(err.^2))));
-legend('残差', '零线', '±3RMSE', 'Location', 'southeast'); grid on;
+h1 = plot(t_exp, err, '.', 'Color', [0.3 0.3 0.3], 'MarkerSize', 3);
+h2 = yline(0, 'r-', 'LineWidth', 1);
+h3 = yline(3*RMSE_val, 'b--', 'LineWidth', 1);
+h4 = yline(-3*RMSE_val, 'b--', 'LineWidth', 1);
+xlabel('时间 (s)', 'FontSize', 11); ylabel('残差 (°C)', 'FontSize', 11);
+title(sprintf('残差分析 (RMSE=%.2f°C)', RMSE_val), 'FontSize', 12);
+legend([h1, h2, h3, h4], {'残差', '零线', '+3RMSE', '-3RMSE'}, ...
+    'Location', 'southeast', 'FontSize', 9);
+grid on; set(gca, 'FontSize', 10);
 
-print(gcf, fullfile(fileparts(mfilename('fullpath')), '..', 'result', 'figures', 'parameter_fit.png'), '-dpng', '-r200');
+print(gcf, fullfile(fileparts(mfilename('fullpath')), '..', 'result', 'figures', 'parameter_fit.png'), '-dpng', '-r300');
 save(fullfile(rootDir, 'result', 'fitted_parameters.mat'), 'xm_opt', 'SSE', 'R2');
 
 % =============== 目标函数 ===============

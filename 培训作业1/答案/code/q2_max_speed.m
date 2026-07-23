@@ -93,5 +93,5 @@ yline(60, '--', 'Color', [1 0.5 0], 'LineWidth', 1.2);
 xlabel('速度 (cm/min)'); ylabel('时间 (s)');
 title('(d) 150-190°C 时间 vs 速度'); legend('模拟值', '上限 120s', '下限 60s', 'FontSize', 8); grid on;
 
-sgtitle(sprintf('问题2: 速度扫描分析  \\rightarrow  v_{max} = %.1f cm/min', v_max));
-print(gcf, fullfile(fileparts(mfilename('fullpath')), '..', 'result', 'figures', 'q2_speed_analysis.png'), '-dpng', '-r200');
+sgtitle(sprintf('问题2: 速度扫描分析  ->  v_{max} = %.1f cm/min', v_max), 'FontSize', 13);
+print(gcf, fullfile(fileparts(mfilename('fullpath')), '..', 'result', 'figures', 'q2_speed_analysis.png'), '-dpng', '-r300');

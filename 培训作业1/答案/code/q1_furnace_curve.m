@@ -59,37 +59,45 @@ fclose(fid);
 fprintf('\nresult.csv 已保存 (%d行)\n', length(t_out));
 
 % 绘图
-figure('Position', [100, 100, 1200, 450]);
+colors = lines(4);
+markers = {'o', 's', '^', 'd'};
+pos_labels = {'小温区3中点', '小温区6中点', '小温区7中点', '小温区8结束'};
+
+figure('Position', [100, 100, 1300, 480]);
 subplot(1,2,1); hold on;
 h1 = plot(t_full, T_center, 'r-', 'LineWidth', 1.5);
 h2 = plot(t_full, T_oven, 'b--', 'LineWidth', 1);
-h3 = yline(217, 'g--', 'LineWidth', 1);
+h3 = yline(217, 'g--', 'LineWidth', 1.2);
 h4 = yline(30, ':k', 'LineWidth', 1);
+h_mark = gobjects(4,1);
 for i = 1:4
     T_val = interp1(t_full, T_center, t_pos(i), 'linear');
-    plot(t_pos(i), T_val, 'ko', 'MarkerSize', 7, 'MarkerFaceColor', 'k');
+    h_mark(i) = plot(t_pos(i), T_val, markers{i}, 'Color', colors(i,:), ...
+        'MarkerSize', 8, 'MarkerFaceColor', colors(i,:), 'LineWidth', 1.2);
 end
-hold off; xlabel('时间 (s)'); ylabel('温度 (°C)');
-title('问题1: 炉温曲线 (时间-温度)');
-legend([h1, h2, h3, h4], {'焊接中心温度', '炉内环境温度', 'T=217°C', 'T=30°C'}, ...
-    'Location', 'southeast', 'FontSize', 9);
-grid on;
+hold off; xlabel('时间 (s)', 'FontSize', 11); ylabel('温度 (°C)', 'FontSize', 11);
+title('(a) 炉温曲线 (时间-温度)', 'FontSize', 12);
+lgd = legend([h1, h2, h3, h4, h_mark'], ...
+    ['焊接中心温度', '炉内环境温度', 'T=217°C', 'T=30°C', pos_labels], ...
+    'Location', 'southeast', 'FontSize', 8, 'NumColumns', 2);
+grid on; set(gca, 'FontSize', 10);
 
 subplot(1,2,2); hold on;
 h1 = plot(v*t_full, T_center, 'r-', 'LineWidth', 1.5);
 h2 = plot(v*t_full, T_oven, 'b--', 'LineWidth', 1);
-h3 = yline(217, 'g--', 'LineWidth', 1);
+h3 = yline(217, 'g--', 'LineWidth', 1.2);
 for i = 1:4
     T_val = interp1(t_full, T_center, t_pos(i), 'linear');
-    plot(x(i), T_val, 'ko', 'MarkerSize', 7, 'MarkerFaceColor', 'k');
+    plot(x(i), T_val, markers{i}, 'Color', colors(i,:), ...
+        'MarkerSize', 8, 'MarkerFaceColor', colors(i,:), 'LineWidth', 1.2);
 end
-hold off; xlabel('位置 (cm)'); ylabel('温度 (°C)');
-title('问题1: 炉温曲线 (位置-温度)');
+hold off; xlabel('位置 (cm)', 'FontSize', 11); ylabel('温度 (°C)', 'FontSize', 11);
+title('(b) 炉温曲线 (位置-温度)', 'FontSize', 12);
 legend([h1, h2, h3], {'焊接中心温度', '炉内环境温度', 'T=217°C'}, ...
     'Location', 'southeast', 'FontSize', 9);
-grid on;
+grid on; set(gca, 'FontSize', 10);
 
-print(gcf, fullfile(fileparts(mfilename('fullpath')), '..', 'result', 'figures', 'q1_furnace_curve.png'), '-dpng', '-r200');
+print(gcf, fullfile(fileparts(mfilename('fullpath')), '..', 'result', 'figures', 'q1_furnace_curve.png'), '-dpng', '-r300');
 
 function s = cond(c, t, f)
     if c, s = t; else, s = f; end
