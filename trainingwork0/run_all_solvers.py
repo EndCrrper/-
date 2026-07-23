@@ -53,10 +53,15 @@ for idx,var in enumerate(INPUTS2):
     best_corr=usable_ccf[np.argmax(usable_ccf)] if len(usable_ccf)>0 else 0
     lag_estimates[var]=best_lag
     ax=axes_ccf[idx]
-    plot_range=slice(mid-max_lag_ccf,mid+max_lag_ccf); plot_lags=np.arange(-max_lag_ccf,max_lag_ccf)
-    ax.plot(plot_lags,ccf[plot_range],color='#3182CE',linewidth=1)
-    ax.axvline(x=-best_lag,color='red',linestyle='--',label=f'最优:{best_lag}步({best_lag*2}h)'); ax.axvline(x=0,color='gray',linestyle='-',alpha=0.5)
-    ax.set_xlabel('滞后步数'); ax.set_ylabel('CCF'); ax.set_title(f'{var}'); ax.legend(fontsize=9); ax.grid(True,alpha=0.3)
+    if xc.std()<1e-6 or yc.std()<1e-6:
+        ax.text(0.5,0.5,f'{var}\n方差趋近于0\n(默认时滞=4步)',ha='center',va='center',transform=ax.transAxes,fontsize=11,color='gray')
+        ax.set_title(f'{var} (无方差)')
+    else:
+        plot_range=slice(mid-max_lag_ccf,mid+max_lag_ccf); plot_lags=np.arange(-max_lag_ccf,max_lag_ccf)
+        ax.plot(plot_lags,ccf[plot_range],color='#3182CE',linewidth=1)
+        ax.axvline(x=-best_lag,color='red',linestyle='--',label=f'最优:{best_lag}步({best_lag*2}h)'); ax.axvline(x=0,color='gray',linestyle='-',alpha=0.5)
+        ax.legend(fontsize=9)
+    ax.set_xlabel('滞后步数'); ax.set_ylabel('CCF'); ax.grid(True,alpha=0.3)
     print(f"  {var}: CCF最优时滞={best_lag}步({best_lag*2}h)")
 fig_ccf.suptitle('问题2：CCF互相关时滞估计',fontsize=14,fontweight='bold')
 plt.tight_layout(); plt.savefig(os.path.join(out_dir,'p2_ccf_lag.png'),dpi=150,bbox_inches='tight'); plt.close()
@@ -266,15 +271,16 @@ risk_df.to_excel(os.path.join(out_dir,'problem4_risk_assessment.xlsx'),index=Fal
 
 # Problem 4 charts
 fig41,ax41=plt.subplots(figsize=(18,8))
-cal=np.full((3,31),-1.0)
+cal=np.full((3,31),np.nan)
 for i,d in enumerate(pd.date_range('2026-01-01','2026-03-31',freq='D')):
     mi,di=d.month-1,d.day-1; dk=d.date()
     match=risk_df[risk_df['日期']==dk]
     if len(match)>0:
         lm={'安全':0,'低风险':1,'中风险':2,'高风险':3}
         cal[mi,di]=lm[match.iloc[0]['风险等级']]
-cmap=plt.cm.RdYlGn_r; ax41.imshow(cal,aspect='auto',cmap=cmap,vmin=0,vmax=3)
-ax41.set_yticks([0,1,2]); ax41.set_yticklabels(['1月','2月','3月'],fontsize=11)
+cmap=plt.cm.RdYlGn_r; cmap.set_bad('white')
+ax41.imshow(cal,aspect='auto',cmap=cmap,vmin=0,vmax=3)
+ax41.set_yticks([0,1,2]); ax41.set_yticklabels(['1月(31天)','2月(28天)','3月(31天)'],fontsize=11)
 ax41.set_xticks(range(0,31,2)); ax41.set_xticklabels([str(i+1) for i in range(0,31,2)],fontsize=9)
 ax41.set_title('问题4：2026年1-3月水质风险日历',fontsize=14,fontweight='bold')
 from matplotlib.patches import Patch

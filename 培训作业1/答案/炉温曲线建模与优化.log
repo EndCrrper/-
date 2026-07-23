@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.21)  23 JUL 2026 20:45
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.21)  23 JUL 2026 20:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1027,18 +1027,18 @@ Overfull \hbox (10.08578pt too wide) in paragraph at lines 92--97
 
 [1
 
-] [2]
-Underfull \hbox (badness 10000) in alignment at lines 199--199
+] [2] [3]
+Underfull \hbox (badness 10000) in alignment at lines 200--200
 [][][] 
  []
 
-[3] [4] [5] [6] [7] [8]
+[4] [5] [6] [7] [8]
 File: result/figures/q1_furnace_curve.png Graphic file (type bmp)
 <result/figures/q1_furnace_curve.png>
- [9]
+ [9] [10]
 File: result/figures/q2_speed_analysis.png Graphic file (type bmp)
 <result/figures/q2_speed_analysis.png>
- [10] [11]
+ [11]
 File: result/figures/q3_optimal.png Graphic file (type bmp)
 <result/figures/q3_optimal.png>
  [12]
@@ -1048,7 +1048,7 @@ File: result/figures/pso_convergence.png Graphic file (type bmp)
 ! Extra alignment tab has been changed to \cr.
 <recently read> \endtemplate 
                              
-l.632 \end{tabularx}
+l.633 \end{tabularx}
                     
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
@@ -1057,7 +1057,7 @@ So I'll assume that you meant to type \cr instead.
 ! Extra alignment tab has been changed to \cr.
 <recently read> \endtemplate 
                              
-l.632 \end{tabularx}
+l.633 \end{tabularx}
                     
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
@@ -1066,7 +1066,7 @@ So I'll assume that you meant to type \cr instead.
 ! Extra alignment tab has been changed to \cr.
 <recently read> \endtemplate 
                              
-l.632 \end{tabularx}
+l.633 \end{tabularx}
                     
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
@@ -1075,7 +1075,7 @@ So I'll assume that you meant to type \cr instead.
 ! Extra alignment tab has been changed to \cr.
 <recently read> \endtemplate 
                              
-l.632 \end{tabularx}
+l.633 \end{tabularx}
                     
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
@@ -1084,7 +1084,7 @@ So I'll assume that you meant to type \cr instead.
 ! Extra alignment tab has been changed to \cr.
 <recently read> \endtemplate 
                              
-l.632 \end{tabularx}
+l.633 \end{tabularx}
                     
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
@@ -1093,7 +1093,7 @@ So I'll assume that you meant to type \cr instead.
 ! Extra alignment tab has been changed to \cr.
 <recently read> \endtemplate 
                              
-l.632 \end{tabularx}
+l.633 \end{tabularx}
                     
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
@@ -1102,7 +1102,7 @@ So I'll assume that you meant to type \cr instead.
 ! Extra alignment tab has been changed to \cr.
 <recently read> \endtemplate 
                              
-l.632 \end{tabularx}
+l.633 \end{tabularx}
                     
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
@@ -1111,7 +1111,7 @@ So I'll assume that you meant to type \cr instead.
 ! Extra alignment tab has been changed to \cr.
 <recently read> \endtemplate 
                              
-l.632 \end{tabularx}
+l.633 \end{tabularx}
                     
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
@@ -1120,7 +1120,7 @@ So I'll assume that you meant to type \cr instead.
 ! Extra alignment tab has been changed to \cr.
 <recently read> \endtemplate 
                              
-l.632 \end{tabularx}
+l.633 \end{tabularx}
                     
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
@@ -1129,7 +1129,7 @@ So I'll assume that you meant to type \cr instead.
 File: result/figures/q4_symmetric_optimal.png Graphic file (type bmp)
 <result/figures/q4_symmetric_optimal.png>
 [14] [15]
-Overfull \hbox (11.67744pt too wide) in paragraph at lines 731--734
+Overfull \hbox (11.67744pt too wide) in paragraph at lines 732--735
 []\TU/SimSun(0)/m/n/12 问 题 \TU/lmr/m/n/12 3 \TU/SimSun(0)/m/n/12 的 最 优 解 将 $\OM
 L/cmm/m/it/12 T[]$ \TU/SimSun(0)/m/n/12 推 至 $\OT1/cmr/m/n/12 265[][]$ |\TU/SimS
 un(0)/m/n/12 （调 整 范 围 上 限） ，|  同 时 将 速 度 提 高 到 $\OT1/cmr/m/n/12 90\OML/cmm/m/it
@@ -1137,7 +1137,7 @@ un(0)/m/n/12 （调 整 范 围 上 限） ，|  同 时 将 速 度 提 高 到
  []
 
 [16] [17]
-Overfull \hbox (15.86848pt too wide) in paragraph at lines 795--797
+Overfull \hbox (15.86848pt too wide) in paragraph at lines 796--798
 []\TU/SimSun(0)/m/n/12 本 研 究 的 创 新 贡 献 在 于：| \TU/lmr/m/n/12 (1) \TU/SimSun(0)/m
 /n/12 基 于 物 理 结 构 的 分 段 参 数 策 略 与 独 立 \TU/lmr/m/n/12 PSO \TU/SimSun(0)/m/n/12 拟
  合；| \TU/lmr/m/n/12 (2) Crank–
@@ -1176,7 +1176,7 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `炉温曲线建模与优化.out' has not changed.
-(rerunfilecheck)             Checksum: 8AFD7B3F5FA013818F2F56A9E2CC0522;5587.
+(rerunfilecheck)             Checksum: 7E3511D59335D3759A476D152E612F5D;5571.
  ) 
 Here is how much of TeX's memory you used:
  20792 strings out of 468168
