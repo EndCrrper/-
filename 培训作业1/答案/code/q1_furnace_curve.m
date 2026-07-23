@@ -2,6 +2,7 @@
 % v=78 cm/min, T=[173,173,173,173,173,198,230,257,257,25,25]
 
 clc; clear;
+addpath(fileparts(mfilename('fullpath')));  %#ok<*MCAP>
 
 % 热力学参数
 xm = [6.6857e-04, 2.1313e+04, ...
@@ -46,9 +47,10 @@ fprintf('  >217°C到峰值面积: %.1f°C·s\n', m.area);
 fprintf('  制程界限: %s\n', cond(check_constraints(m), '满足', '不满足'));
 
 % 输出 result.csv
+rootDir = fullfile(fileparts(mfilename('fullpath')), '..');
 t_out = (0:length(T_s)-1)' * 0.5;
 T_out = T_s;
-fid = fopen('result.csv', 'w');
+fid = fopen(fullfile(rootDir, 'result', 'figures', 'result.csv'), 'w');
 fprintf(fid, '时间(s),温度(°C)\n');
 for i = 1:length(t_out)
     fprintf(fid, '%.1f,%.4f\n', t_out(i), T_out(i));
@@ -87,7 +89,7 @@ legend([h1, h2, h3], {'焊接中心温度', '炉内环境温度', 'T=217°C'}, .
     'Location', 'southeast', 'FontSize', 9);
 grid on;
 
-print(gcf, 'q1_furnace_curve.png', '-dpng', '-r200');
+print(gcf, fullfile(fileparts(mfilename('fullpath')), '..', 'result', 'figures', 'q1_furnace_curve.png'), '-dpng', '-r200');
 
 function s = cond(c, t, f)
     if c, s = t; else, s = f; end

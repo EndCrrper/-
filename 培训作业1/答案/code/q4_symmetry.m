@@ -3,6 +3,7 @@
 % sigma = max(|AL-AR|/max(AL,AR), |dtR-dtL|/max(dtL,dtR))
 
 clc; clear;
+addpath(fileparts(mfilename('fullpath')));
 
 xm = [6.6857e-04, 2.1313e+04, ...
       8.1830e-04, 1.2193e+03, ...
@@ -80,7 +81,7 @@ legend([h1, h2, h3], {'峰值左侧', '峰值右侧(镜像)', 'T=217°C'}, ...
     'Location', 'southeast', 'FontSize', 8);
 grid on;
 
-print(gcf, 'q4_symmetric_optimal.png', '-dpng', '-r200');
+print(gcf, fullfile(fileparts(mfilename('fullpath')), '..', 'result', 'figures', 'q4_symmetric_optimal.png'), '-dpng', '-r200');
 
 % =============== 对称性计算 ===============
 function [sigma, s1, s2, AL, AR] = calc_sym(T)

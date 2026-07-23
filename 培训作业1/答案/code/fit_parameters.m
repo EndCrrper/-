@@ -3,9 +3,11 @@
 % 待估10参数: [a1,h1, a2,h2, a3,h3, a4,h4, a5,h5]
 
 clc; clear;
+addpath(fileparts(mfilename('fullpath')));
 
 % 加载实验数据
-E = readmatrix('..\题目\附件.xlsx');
+rootDir = fullfile(fileparts(mfilename('fullpath')), '..');
+E = readmatrix(fullfile(rootDir, '..', '题目', '附件.xlsx'));
 t_exp = E(:,1); T_exp = E(:,2);
 
 F_exp = [25, 175, 195, 235, 255, 25];
@@ -59,8 +61,8 @@ xlabel('时间 (s)'); ylabel('残差 (°C)');
 title(sprintf('残差分析 (RMSE=%.2f°C)', sqrt(mean(err.^2))));
 legend('残差', '零线', '±3RMSE', 'Location', 'southeast'); grid on;
 
-print(gcf, 'parameter_fit.png', '-dpng', '-r200');
-save('fitted_parameters.mat', 'xm_opt', 'SSE', 'R2');
+print(gcf, fullfile(fileparts(mfilename('fullpath')), '..', 'result', 'figures', 'parameter_fit.png'), '-dpng', '-r200');
+save(fullfile(rootDir, 'result', 'fitted_parameters.mat'), 'xm_opt', 'SSE', 'R2');
 
 % =============== 目标函数 ===============
 function sse = obj_fit(xm, F_exp, v_exp, t_exp, T_exp)

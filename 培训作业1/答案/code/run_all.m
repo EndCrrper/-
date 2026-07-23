@@ -3,6 +3,7 @@
 % 注意: Q3和Q4使用PSO, 耗时约1~3分钟
 
 clc; clear; close all;
+addpath(fileparts(mfilename('fullpath')));
 
 fprintf('===== 2020 CUMCM A题: 炉温曲线 =====\n\n');
 
