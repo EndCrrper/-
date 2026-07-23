@@ -10,6 +10,8 @@ function T_air = oven_temp(x, F)
     x7 = x6 + L;            x8 = x7 + l;         % 268.5, 273.5
     x9 = x8 + 2*L + l;      x10 = x9 + l;        % 339.5, 344.5
 
+    T_air = zeros(size(x));
+
     for i = 1:length(x)
         xi = x(i);
         if xi <= x2

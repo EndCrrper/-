@@ -84,7 +84,7 @@ saveas(gcf, 'q4_symmetric_optimal.png');
 function [sigma, s1, s2, AL, AR] = calc_sym(T)
     dt = 0.5;
     above = T - 217;
-    above = above(above > 0);
+    above = above(above >= 0);
     if isempty(above), sigma = 1; s1 = 1; s2 = 1; AL = 0; AR = 0; return; end
     [~, k] = max(above); n = length(above);
 
