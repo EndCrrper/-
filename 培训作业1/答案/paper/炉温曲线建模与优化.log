@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.21)  23 JUL 2026 21:33
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.21)  24 JUL 2026 12:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1026,102 +1026,21 @@ Overfull \hbox (10.39265pt too wide) in paragraph at lines 182--202
  []
 
 [4] [5] [6] [7] [8]
-File: result/figures/q1_furnace_curve.png Graphic file (type bmp)
-<result/figures/q1_furnace_curve.png>
+File: ../result/figures/q1_furnace_curve.png Graphic file (type bmp)
+<../result/figures/q1_furnace_curve.png>
  [9] [10]
-File: result/figures/q2_speed_analysis.png Graphic file (type bmp)
-<result/figures/q2_speed_analysis.png>
+File: ../result/figures/q2_speed_analysis.png Graphic file (type bmp)
+<../result/figures/q2_speed_analysis.png>
  [11]
-File: result/figures/q3_optimal.png Graphic file (type bmp)
-<result/figures/q3_optimal.png>
+File: ../result/figures/q3_optimal.png Graphic file (type bmp)
+<../result/figures/q3_optimal.png>
  [12]
-File: result/figures/pso_convergence.png Graphic file (type bmp)
-<result/figures/pso_convergence.png>
+File: ../result/figures/pso_convergence.png Graphic file (type bmp)
+<../result/figures/pso_convergence.png>
  [13]
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.636 \end{tabularx}
-                    
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.636 \end{tabularx}
-                    
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.636 \end{tabularx}
-                    
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.636 \end{tabularx}
-                    
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.636 \end{tabularx}
-                    
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.636 \end{tabularx}
-                    
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.636 \end{tabularx}
-                    
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.636 \end{tabularx}
-                    
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.636 \end{tabularx}
-                    
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-File: result/figures/q4_symmetric_optimal.png Graphic file (type bmp)
-<result/figures/q4_symmetric_optimal.png>
-[14] [15] [16] [17] [18] [19]
+File: ../result/figures/q4_symmetric_optimal.png Graphic file (type bmp)
+<../result/figures/q4_symmetric_optimal.png>
+ [14] [15] [16] [17] [18] [19]
 
 Package fontspec Info: 
 (fontspec)             Could not resolve font "FangSong/BI" (it probably
@@ -1148,7 +1067,8 @@ Package fontspec Info:
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
 
- [20] [21] (./炉温曲线建模与优化.aux)
+
+[20] [21] (./炉温曲线建模与优化.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
@@ -1158,8 +1078,8 @@ Package rerunfilecheck Info: File `炉温曲线建模与优化.out' has not chan
  ) 
 Here is how much of TeX's memory you used:
  20792 strings out of 468168
- 434155 string characters out of 5436524
- 1308211 words of memory out of 5000000
+ 434278 string characters out of 5436524
+ 1307211 words of memory out of 5000000
  49208 multiletter control sequences out of 15000+600000
  645986 words of font info for 150 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
