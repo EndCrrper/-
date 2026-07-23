@@ -57,33 +57,37 @@ fclose(fid);
 fprintf('\nresult.csv 已保存 (%d行)\n', length(t_out));
 
 % 绘图
-figure;
-subplot(1,2,1);
-plot(t_full, T_center, 'r-', 'LineWidth', 1.5); hold on;
-plot(t_full, T_oven, 'b--', 'LineWidth', 1);
-yline(217, 'g--'); yline(30, ':k');
+figure('Position', [100, 100, 1200, 450]);
+subplot(1,2,1); hold on;
+h1 = plot(t_full, T_center, 'r-', 'LineWidth', 1.5);
+h2 = plot(t_full, T_oven, 'b--', 'LineWidth', 1);
+h3 = yline(217, 'g--', 'LineWidth', 1);
+h4 = yline(30, ':k', 'LineWidth', 1);
 for i = 1:4
     T_val = interp1(t_full, T_center, t_pos(i), 'linear');
-    plot(t_pos(i), T_val, 'o', 'MarkerSize', 8);
+    plot(t_pos(i), T_val, 'ko', 'MarkerSize', 7, 'MarkerFaceColor', 'k');
 end
-hold off; xlabel('时间(s)'); ylabel('温度(°C)');
-title('问题1: 炉温曲线');
-legend('焊接中心温度', '炉内环境温度', 'T=217°C', 'T=30°C', '关键位置');
+hold off; xlabel('时间 (s)'); ylabel('温度 (°C)');
+title('问题1: 炉温曲线 (时间-温度)');
+legend([h1, h2, h3, h4], {'焊接中心温度', '炉内环境温度', 'T=217°C', 'T=30°C'}, ...
+    'Location', 'southeast', 'FontSize', 9);
 grid on;
 
-subplot(1,2,2);
-plot(v*t_full, T_center, 'r-', 'LineWidth', 1.5); hold on;
-plot(v*t_full, T_oven, 'b--', 'LineWidth', 1);
-yline(217, 'g--');
+subplot(1,2,2); hold on;
+h1 = plot(v*t_full, T_center, 'r-', 'LineWidth', 1.5);
+h2 = plot(v*t_full, T_oven, 'b--', 'LineWidth', 1);
+h3 = yline(217, 'g--', 'LineWidth', 1);
 for i = 1:4
     T_val = interp1(t_full, T_center, t_pos(i), 'linear');
-    plot(x(i), T_val, 'o', 'MarkerSize', 8);
+    plot(x(i), T_val, 'ko', 'MarkerSize', 7, 'MarkerFaceColor', 'k');
 end
-hold off; xlabel('位置(cm)'); ylabel('温度(°C)');
-title('位置-温度曲线'); legend('焊接中心温度', '炉内环境温度', 'T=217°C', '关键位置');
+hold off; xlabel('位置 (cm)'); ylabel('温度 (°C)');
+title('问题1: 炉温曲线 (位置-温度)');
+legend([h1, h2, h3], {'焊接中心温度', '炉内环境温度', 'T=217°C'}, ...
+    'Location', 'southeast', 'FontSize', 9);
 grid on;
 
-saveas(gcf, 'q1_furnace_curve.png');
+print(gcf, 'q1_furnace_curve.png', '-dpng', '-r200');
 
 function s = cond(c, t, f)
     if c, s = t; else, s = f; end

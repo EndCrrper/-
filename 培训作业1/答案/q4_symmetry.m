@@ -51,34 +51,36 @@ t_full = (0:length(T4)-1) * 0.5;
 x_full = x4(5) * t_full;
 [~, pk] = max(T4);
 
-figure;
+figure('Position', [100, 100, 1200, 450]);
 subplot(1,2,1); hold on;
-plot(t_full, T4, 'r-', 'LineWidth', 1.5);
-plot(t_full, T_oven4, 'b--', 'LineWidth', 1);
-yline(217, 'g--'); xline(t_full(pk), 'k:');
-plot(t_full(pk), T4(pk), 'ro', 'MarkerSize', 10);
-hold off; xlabel('时间(s)'); ylabel('温度(°C)');
-title(sprintf('问题4: 对称最优 (sigma=%.4f, 面积=%.1f)', sigma4, m4.area));
-legend('焊接中心温度', '炉内环境温度', 'T=217°C', '峰值线', '峰值');
+h1 = plot(t_full, T4, 'r-', 'LineWidth', 1.5);
+h2 = plot(t_full, T_oven4, 'b--', 'LineWidth', 1);
+h3 = yline(217, 'g--', 'LineWidth', 1);
+h4 = xline(t_full(pk), 'k:', 'LineWidth', 1);
+h5 = plot(t_full(pk), T4(pk), 'ro', 'MarkerSize', 8, 'MarkerFaceColor', 'r');
+hold off; xlabel('时间 (s)'); ylabel('温度 (°C)');
+title(sprintf('问题4: 对称最优 (sigma=%.4f, 面积=%.1f °C·s)', sigma4, m4.area));
+legend([h1, h2, h3, h4, h5], {'焊接中心温度', '炉内环境温度', 'T=217°C', '峰值对称线', '峰值'}, ...
+    'Location', 'southeast', 'FontSize', 8);
 grid on;
 
 % 对称性镜像对比
-subplot(1,2,2);
+subplot(1,2,2); hold on;
 idx_s = find(T4 >= 30, 1);
 T_post = T4(idx_s:end); t_post = t_full(idx_s:end);
 [~, pk2] = max(T_post);
 t_L = t_post(1:pk2) - t_post(pk2);
 t_R = t_post(pk2:end) - t_post(pk2);
-hold on;
-plot(t_L, T_post(1:pk2), 'r-', 'LineWidth', 1.5);
-plot(-t_R, T_post(pk2:end), 'b--', 'LineWidth', 1.5);
-yline(217, 'g--');
-hold off; xlabel('相对峰值时间(s)'); ylabel('温度(°C)');
+h1 = plot(t_L, T_post(1:pk2), 'r-', 'LineWidth', 1.5);
+h2 = plot(-t_R, T_post(pk2:end), 'b--', 'LineWidth', 1.5);
+h3 = yline(217, 'g--', 'LineWidth', 1);
+hold off; xlabel('相对峰值时间 (s)'); ylabel('温度 (°C)');
 title(sprintf('对称性分析 (sigma1=%.4f, sigma2=%.4f)', s1, s2));
-legend('峰值左侧', '峰值右侧(镜像)', 'T=217°C');
+legend([h1, h2, h3], {'峰值左侧', '峰值右侧(镜像)', 'T=217°C'}, ...
+    'Location', 'southeast', 'FontSize', 8);
 grid on;
 
-saveas(gcf, 'q4_symmetric_optimal.png');
+print(gcf, 'q4_symmetric_optimal.png', '-dpng', '-r200');
 
 % =============== 对称性计算 ===============
 function [sigma, s1, s2, AL, AR] = calc_sym(T)

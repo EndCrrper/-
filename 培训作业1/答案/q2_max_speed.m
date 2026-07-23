@@ -57,7 +57,7 @@ fprintf('  Tmax=%.1f°C, 斜率=%.3f°C/s, 150-190=%.1fs, >217=%.1fs\n', ...
     m.Tmax, m.max_slope, m.t_150_190, m.t_above);
 
 % 四象限图
-figure;
+figure('Position', [100, 100, 1000, 800]);
 v_list = 65:5:100;
 for i = 1:length(v_list)
     [T_c, ~, ~] = solve_heat(F2, v_list(i)/60, xm);
@@ -65,28 +65,32 @@ for i = 1:length(v_list)
     s(i) = analyze_curve(T_s);
 end
 
-subplot(2,2,1);
-plot(v_list, [s.max_slope], 'b-o', 'MarkerSize', 5); hold on;
-yline(3, 'r--'); xlabel('速度(cm/min)'); ylabel('斜率(°C/s)');
-title('最大速率 vs 速度'); grid on;
+subplot(2,2,1); hold on;
+plot(v_list, [s.max_slope], 'b-o', 'MarkerSize', 6, 'LineWidth', 1.2);
+yline(3, 'r--', 'LineWidth', 1.2);
+xlabel('速度 (cm/min)'); ylabel('斜率 (°C/s)');
+title('(a) 最大速率 vs 速度'); legend('模拟值', '上限 3°C/s', 'FontSize', 8); grid on;
 
-subplot(2,2,2);
-plot(v_list, [s.Tmax], 'r-o', 'MarkerSize', 5); hold on;
-yline(250, 'r--'); yline(240, '--', 'Color', [1 0.5 0]);
-xlabel('速度(cm/min)'); ylabel('温度(°C)');
-title('峰值温度 vs 速度'); grid on;
+subplot(2,2,2); hold on;
+plot(v_list, [s.Tmax], 'r-o', 'MarkerSize', 6, 'LineWidth', 1.2);
+yline(250, 'r--', 'LineWidth', 1.2);
+yline(240, '--', 'Color', [1 0.5 0], 'LineWidth', 1.2);
+xlabel('速度 (cm/min)'); ylabel('峰值温度 (°C)');
+title('(b) 峰值温度 vs 速度'); legend('模拟值', '上限 250', '下限 240', 'FontSize', 8); grid on;
 
-subplot(2,2,3);
-plot(v_list, [s.t_above], 'g-o', 'MarkerSize', 5); hold on;
-yline(90, 'r--'); yline(40, '--', 'Color', [1 0.5 0]);
-xlabel('速度(cm/min)'); ylabel('时间(s)');
-title('>217°C时间 vs 速度'); grid on;
+subplot(2,2,3); hold on;
+plot(v_list, [s.t_above], 'g-o', 'MarkerSize', 6, 'LineWidth', 1.2);
+yline(90, 'r--', 'LineWidth', 1.2);
+yline(40, '--', 'Color', [1 0.5 0], 'LineWidth', 1.2);
+xlabel('速度 (cm/min)'); ylabel('时间 (s)');
+title('(c) >217°C 时间 vs 速度'); legend('模拟值', '上限 90s', '下限 40s', 'FontSize', 8); grid on;
 
-subplot(2,2,4);
-plot(v_list, [s.t_150_190], 'm-o', 'MarkerSize', 5); hold on;
-yline(120, 'r--'); yline(60, '--', 'Color', [1 0.5 0]);
-xlabel('速度(cm/min)'); ylabel('时间(s)');
-title('150-190°C时间 vs 速度'); grid on;
+subplot(2,2,4); hold on;
+plot(v_list, [s.t_150_190], 'm-o', 'MarkerSize', 6, 'LineWidth', 1.2);
+yline(120, 'r--', 'LineWidth', 1.2);
+yline(60, '--', 'Color', [1 0.5 0], 'LineWidth', 1.2);
+xlabel('速度 (cm/min)'); ylabel('时间 (s)');
+title('(d) 150-190°C 时间 vs 速度'); legend('模拟值', '上限 120s', '下限 60s', 'FontSize', 8); grid on;
 
-sgtitle(sprintf('问题2: v_{max}=%.1f cm/min', v_max));
-saveas(gcf, 'q2_speed_analysis.png');
+sgtitle(sprintf('问题2: 速度扫描分析  \\rightarrow  v_{max} = %.1f cm/min', v_max));
+print(gcf, 'q2_speed_analysis.png', '-dpng', '-r200');

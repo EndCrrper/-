@@ -45,32 +45,39 @@ x_full = x_opt(5) * t_full;
 [~, pk] = max(T_c);
 idx_217 = find(T_c >= 217, 1);
 
-figure;
+figure('Position', [100, 100, 1200, 450]);
 subplot(1,2,1); hold on;
 if ~isempty(idx_217)
     x_fill = t_full(idx_217:pk);
     y_top = T_c(idx_217:pk);
     y_bot = 217 * ones(size(x_fill));
-    fill([x_fill, fliplr(x_fill)], [y_top(:)', y_bot(:)'], ...
-        [1 0.8 0.8], 'EdgeColor', 'none');
+    h_fill = fill([x_fill, fliplr(x_fill)], [y_top(:)', y_bot(:)'], ...
+        [1 0.8 0.8], 'EdgeColor', 'none', 'FaceAlpha', 0.5);
 end
-plot(t_full, T_c, 'r-', 'LineWidth', 1.5);
-plot(t_full, T_oven, 'b--', 'LineWidth', 1);
-yline(217, 'g--'); plot(t_full(pk), T_c(pk), 'ro', 'MarkerSize', 10);
-hold off; xlabel('时间(s)'); ylabel('温度(°C)');
-title(sprintf('问题3: 最优曲线 (面积=%.1f)', S_min));
-legend('面积区域', '焊接中心温度', '炉内环境温度', 'T=217°C', '峰值');
+h1 = plot(t_full, T_c, 'r-', 'LineWidth', 1.5);
+h2 = plot(t_full, T_oven, 'b--', 'LineWidth', 1);
+h3 = yline(217, 'g--', 'LineWidth', 1);
+h4 = plot(t_full(pk), T_c(pk), 'ro', 'MarkerSize', 8, 'MarkerFaceColor', 'r');
+hold off; xlabel('时间 (s)'); ylabel('温度 (°C)');
+title(sprintf('问题3: 最优炉温曲线 (面积=%.1f °C·s)', S_min));
+if exist('h_fill', 'var')
+    legend([h_fill, h1, h2, h3, h4], {'>217°C至峰值面积', '焊接中心温度', '炉内环境温度', 'T=217°C', '峰值'}, ...
+        'Location', 'southeast', 'FontSize', 8);
+end
 grid on;
 
-subplot(1,2,2);
-plot(x_full, T_c, 'r-', 'LineWidth', 1.5); hold on;
-plot(x_full, T_oven, 'b--', 'LineWidth', 1);
-yline(217, 'g--'); plot(x_full(pk), T_c(pk), 'ro', 'MarkerSize', 10);
-hold off; xlabel('位置(cm)'); ylabel('温度(°C)');
-title('位置-温度曲线'); legend('焊接中心温度', '炉内环境温度', 'T=217°C', '峰值');
+subplot(1,2,2); hold on;
+h1 = plot(x_full, T_c, 'r-', 'LineWidth', 1.5);
+h2 = plot(x_full, T_oven, 'b--', 'LineWidth', 1);
+h3 = yline(217, 'g--', 'LineWidth', 1);
+h4 = plot(x_full(pk), T_c(pk), 'ro', 'MarkerSize', 8, 'MarkerFaceColor', 'r');
+hold off; xlabel('位置 (cm)'); ylabel('温度 (°C)');
+title('问题3: 位置-温度曲线');
+legend([h1, h2, h3, h4], {'焊接中心温度', '炉内环境温度', 'T=217°C', '峰值'}, ...
+    'Location', 'southeast', 'FontSize', 8);
 grid on;
 
-saveas(gcf, 'q3_optimal.png');
+print(gcf, 'q3_optimal.png', '-dpng', '-r200');
 
 % =============== 目标函数 ===============
 function S = obj_area(x, xm)

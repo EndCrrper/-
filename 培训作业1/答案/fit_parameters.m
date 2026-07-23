@@ -42,22 +42,24 @@ fprintf('冷却区(10-11):%.4e  %.4e\n', xm_opt(9), xm_opt(10));
 fprintf('\nSSE=%.4f, RMSE=%.4f°C, R²=%.4f\n', SSE, sqrt(mean(err.^2)), R2);
 
 % 绘图
-figure;
-subplot(1,2,1);
-plot(t_exp, T_exp, 'b.', 'MarkerSize', 8); hold on;
+figure('Position', [100, 100, 1100, 420]);
+subplot(1,2,1); hold on;
+plot(t_exp, T_exp, 'b.', 'MarkerSize', 6);
 plot(t_exp, T_interp, 'r-', 'LineWidth', 1.5);
-xlabel('时间(s)'); ylabel('温度(°C)');
-title(sprintf('拟合对比 (R^2=%.4f)', R2));
-legend('实验', '模拟'); grid on;
+xlabel('时间 (s)'); ylabel('温度 (°C)');
+title(sprintf('拟合对比 (R^2=%.4f, RMSE=%.2f°C)', R2, sqrt(mean(err.^2))));
+legend('实验数据', '模拟值', 'Location', 'southeast'); grid on;
 
-subplot(1,2,2);
-plot(t_exp, err, 'k.', 'MarkerSize', 8); hold on;
-yline(0, 'r-'); yline(3*sqrt(mean(err.^2)), 'b--'); yline(-3*sqrt(mean(err.^2)), 'b--');
-xlabel('时间(s)'); ylabel('残差(°C)');
-title(sprintf('残差 (RMSE=%.2f°C)', sqrt(mean(err.^2))));
-grid on;
+subplot(1,2,2); hold on;
+stem(t_exp, err, 'k.', 'MarkerSize', 4);
+yline(0, 'r-', 'LineWidth', 1);
+yline(3*sqrt(mean(err.^2)), 'b--', 'LineWidth', 1);
+yline(-3*sqrt(mean(err.^2)), 'b--', 'LineWidth', 1);
+xlabel('时间 (s)'); ylabel('残差 (°C)');
+title(sprintf('残差分析 (RMSE=%.2f°C)', sqrt(mean(err.^2))));
+legend('残差', '零线', '±3RMSE', 'Location', 'southeast'); grid on;
 
-saveas(gcf, 'parameter_fit.png');
+print(gcf, 'parameter_fit.png', '-dpng', '-r200');
 save('fitted_parameters.mat', 'xm_opt', 'SSE', 'R2');
 
 % =============== 目标函数 ===============
