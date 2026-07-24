@@ -27,13 +27,14 @@ T_s4 = T4(T4 >= 30);
 m4 = analyze_curve(T_s4);
 [sigma4, s1, s2, AL, AR] = calc_sym(T_s4);
 
-% Q3: 最小化面积 (对比基准)
-fprintf('\n运行Q3对比...\n');
-[x3, S3] = sel_pso(@obj_area_q4, 60, 0.8, 2.0, 2.0, ub, lb, 500, 5, xm);
+% Q3: 使用问题3的最优解作为对比基准 (Table 6参数)
+fprintf('\n加载Q3最优解作为对比基准...\n');
+x3 = [178.1, 194.3, 225.9, 265.0, 90.90/60];
 F3 = [25, x3(1), x3(2), x3(3), x3(4), 25];
 [T3, ~, ~] = solve_heat(F3, x3(5), xm);
 T_s3 = T3(T3 >= 30);
 m3 = analyze_curve(T_s3);
+S3 = m3.area;
 sigma3 = calc_sym(T_s3);
 
 fprintf('\n========================================\n');
@@ -115,15 +116,6 @@ function sigma = obj_sym(x, xm)
     if isempty(T_s), sigma = Inf; return; end
     m = analyze_curve(T_s);
     if ~check_constraints(m), sigma = Inf; else, sigma = calc_sym(T_s); end
-end
-
-function S = obj_area_q4(x, xm)
-    F = [25, x(1), x(2), x(3), x(4), 25];
-    [T_c, ~, ~] = solve_heat(F, x(5), xm);
-    T_s = T_c(T_c >= 30);
-    if isempty(T_s), S = Inf; return; end
-    m = analyze_curve(T_s);
-    if check_constraints(m), S = m.area; else, S = Inf; end
 end
 
 % =============== SelPSO ===============
