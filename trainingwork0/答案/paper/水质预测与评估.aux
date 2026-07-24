@@ -1,0 +1,114 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\HyPL@Entry{0<</S/D>>}
+\@writefile{toc}{\contentsline {section}{\numberline {1}问题重述}{3}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}问题背景}{3}{subsection.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}需要解决的问题}{3}{subsection.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}模型假设}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}题目给定条件假设}{3}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}解题基础假设}{4}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}符号说明}{5}{section.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces 主要符号说明}}{5}{table.caption.2}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:symbols}{{1}{5}{主要符号说明}{table.caption.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}问题分析}{5}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}整体分析}{5}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}问题1分析}{6}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}问题2分析}{6}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}问题3分析}{6}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}问题4分析}{6}{subsection.4.5}\protected@file@percent }
+\citation{ref1}
+\citation{ref2}
+\citation{ref6}
+\@writefile{toc}{\contentsline {section}{\numberline {5}模型建立}{7}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}数据预处理与特征工程}{7}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}数据清洗}{7}{subsubsection.5.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}特征工程}{7}{subsubsection.5.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}三层递进特征筛选框架（问题1）}{7}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}第一层：互信息(MI)过滤式筛选}{7}{subsubsection.5.2.1}\protected@file@percent }
+\newlabel{eq:mi}{{1}{7}{第一层：互信息(MI)过滤式筛选}{equation.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}第二层：XGBoost嵌入式特征重要性排序}{7}{subsubsection.5.2.2}\protected@file@percent }
+\newlabel{eq:xgb}{{2}{7}{第二层：XGBoost嵌入式特征重要性排序}{equation.2}{}}
+\newlabel{eq:importance}{{3}{7}{第二层：XGBoost嵌入式特征重要性排序}{equation.3}{}}
+\citation{ref5}
+\citation{ref3}
+\citation{ref4}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}第三层：排列重要性(Permutation Importance)验证}{8}{subsubsection.5.2.3}\protected@file@percent }
+\newlabel{eq:perm}{{4}{8}{第三层：排列重要性(Permutation Importance)验证}{equation.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Stacking多模型融合预测模型（问题1）}{8}{subsection.5.3}\protected@file@percent }
+\newlabel{eq:stack1}{{5}{8}{Stacking多模型融合预测模型（问题1）}{equation.5}{}}
+\newlabel{eq:stack2}{{6}{8}{Stacking多模型融合预测模型（问题1）}{equation.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}TD-NARX异质时滞模型（问题2）}{8}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1}CCF粗估时滞范围}{8}{subsubsection.5.4.1}\protected@file@percent }
+\newlabel{eq:ccf}{{7}{8}{CCF粗估时滞范围}{equation.7}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2}Grid Search精搜最优时滞}{8}{subsubsection.5.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3}NARX神经网络}{8}{subsubsection.5.4.3}\protected@file@percent }
+\newlabel{eq:narx}{{8}{8}{NARX神经网络}{equation.8}{}}
+\citation{ref8}
+\citation{ref11}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}RTD-GBDT混合动态预测模型（问题3）}{9}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.1}停留时间分布(RTD)物理模型}{9}{subsubsection.5.5.1}\protected@file@percent }
+\newlabel{eq:rtd}{{9}{9}{停留时间分布(RTD)物理模型}{equation.9}{}}
+\newlabel{eq:rtd_conv}{{10}{9}{停留时间分布(RTD)物理模型}{equation.10}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2}物理+数据混合模型}{9}{subsubsection.5.5.2}\protected@file@percent }
+\newlabel{eq:gbdt}{{11}{9}{物理+数据混合模型}{equation.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}FCE-SA双维度风险评价模型（问题4）}{9}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.1}风险指标体系}{9}{subsubsection.5.6.1}\protected@file@percent }
+\newlabel{eq:risk}{{12}{9}{风险指标体系}{equation.12}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.2}四级风险等级划分}{9}{subsubsection.5.6.2}\protected@file@percent }
+\newlabel{eq:risk_level}{{13}{10}{四级风险等级划分}{equation.13}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}模型求解}{10}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}问题1：因素筛选与NTU预测}{10}{subsection.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 三层递进特征筛选结果：（左）互信息评分，（中）XGBoost特征重要性，（右）排列重要性}}{10}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:p1_feature}{{1}{10}{三层递进特征筛选结果：（左）互信息评分，（中）XGBoost特征重要性，（右）排列重要性}{figure.caption.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces 各模型在测试集上的预测性能对比}}{10}{table.caption.4}\protected@file@percent }
+\newlabel{tab:p1_results}{{2}{10}{各模型在测试集上的预测性能对比}{table.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 2026年2月关键日期NTU预测结果}}{11}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:p1_pred}{{2}{11}{2026年2月关键日期NTU预测结果}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}问题2：滤后水浊度动态时滞建模}{11}{subsection.6.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces CCF+Grid Search联合估计的异质时滞参数}}{11}{table.caption.6}\protected@file@percent }
+\newlabel{tab:lags}{{3}{11}{CCF+Grid Search联合估计的异质时滞参数}{table.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces TD-NARX模型预测效果（含$\pm $RMSE置信区间）}}{12}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:p2_pred}{{3}{12}{TD-NARX模型预测效果（含$\pm $RMSE置信区间）}{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}问题3：出厂水NTU混合动态预测}{12}{subsection.6.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces 输入变量对CW\_NTU预测的敏感性排名（OAT法）}}{12}{table.caption.8}\protected@file@percent }
+\newlabel{tab:sensitivity}{{4}{12}{输入变量对CW\_NTU预测的敏感性排名（OAT法）}{table.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 2026年2月关键日期7:00-19:00出厂水NTU预测}}{13}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:p3_pred}{{4}{13}{2026年2月关键日期7:00-19:00出厂水NTU预测}{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}问题4：水质风险评价}{13}{subsection.6.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces 2026年1-3月水质风险等级分布}}{13}{table.caption.10}\protected@file@percent }
+\newlabel{tab:risk_dist}{{5}{13}{2026年1-3月水质风险等级分布}{table.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 2026年1-3月水质风险日历}}{14}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:p4_calendar}{{5}{14}{2026年1-3月水质风险日历}{figure.caption.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 2026年1-3月风险等级分布饼图}}{15}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:p4_pie}{{6}{15}{2026年1-3月风险等级分布饼图}{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}模型检验}{15}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}数据完整性检验}{15}{subsection.7.1}\protected@file@percent }
+\citation{ref9}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}特征筛选鲁棒性检验}{16}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}时滞假设验证}{16}{subsection.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}风险评价敏感性}{16}{subsection.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}结果分析与讨论}{16}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}特征重要性分析}{16}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}时滞参数的物理意义}{16}{subsection.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}RTD混合模型的优势}{17}{subsection.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}风险管理的决策价值}{17}{subsection.8.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}模型评价与改进}{17}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}模型优点}{17}{subsection.9.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}模型不足}{17}{subsection.9.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}改进方向}{18}{subsection.9.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}结论}{18}{section.10}\protected@file@percent }
+\bibcite{ref1}{1}
+\bibcite{ref2}{2}
+\bibcite{ref3}{3}
+\bibcite{ref4}{4}
+\bibcite{ref5}{5}
+\bibcite{ref6}{6}
+\bibcite{ref7}{7}
+\bibcite{ref8}{8}
+\bibcite{ref9}{9}
+\bibcite{ref10}{10}
+\bibcite{ref11}{11}
+\bibcite{ref12}{12}
+\gdef \@abspage@last{21}
